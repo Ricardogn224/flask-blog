@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Users Liste {% endblock %}</h1>
+    {% for user in users %}
+        <div class='post'>
+            <p>{{ user['username'] }}</p>
+            <h2>{{ user['password'] }}</h2>
+            <p>{{ user['content'] }}</p>
+
+            <a href="{{ url_for('editUser', id=user['id']) }}">Edit</a>
+        </div>
+    {% endfor %}
+{% endblock %}
